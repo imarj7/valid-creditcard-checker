@@ -14,30 +14,28 @@ bool isNumberString(const string& s) {
 }
 
 int main() {
-    string ccNumber;
-    
-    cout << "This program uses the Luhn Algorigthm to validate a CC number." << endl;
+    string ccNum;
     cout << "You can enter 'exit' anytime to quit." << endl;
     
     while (true) {
         
         cout << "Please enter a CC number to validate: ";
-        cin >> ccNumber;
+        cin >> ccNum;
         
-        if (ccNumber == "exit")
+        if (ccNum == "exit")
             break;
         
-        else if (!isNumberString(ccNumber)) {
+        else if (!isNumberString(ccNum)) {
             cout << "Bad input! ";
             continue;
         }
             
-        int len = ccNumber.length();
+        int len = ccNum.length();
         int doubleEvenSum = 0;
         
         
         for (int i = len - 2; i >= 0; i = i - 2) {
-            int dbl = ((ccNumber[i] - 48) * 2);
+            int dbl = ((ccNum[i] - 48) * 2);
             if (dbl > 9) {
                 dbl = (dbl / 10) + (dbl % 10);
             }
@@ -46,7 +44,7 @@ int main() {
         
         
         for (int i = len - 1; i >= 0; i = i - 2) {
-            doubleEvenSum += (ccNumber[i] - 48);
+            doubleEvenSum += (ccNum[i] - 48);
         }
         
         
